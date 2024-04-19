@@ -11,7 +11,6 @@ defmodule Todo.Application do
       {Task.Supervisor, name: Todo.TaskSupervisor},
       Supervisor.child_spec({Task, fn -> Todo.Server.accept() end}, restart: :permanent),
       {DynamicSupervisor, name: Todo.BucketSupervisor, strategy: :one_for_one},
-      {Todo.Registry, name: Todo.Registry}
     ]
 
     opts = [strategy: :one_for_all, name: Todo.Supervisor]

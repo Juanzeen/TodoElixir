@@ -35,7 +35,7 @@ defmodule Todo.Server do
     x
   end
 
-  defp write_line(client, {:error, :unkown_command}) do
+  defp write_line(client, {:error, :unexpected_command}) do
     :gen_tcp.send(client, "NÃO CONHEÇO ESSE COMANDO\r\n")
   end
 

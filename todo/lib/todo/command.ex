@@ -1,5 +1,4 @@
 defmodule Todo.Command do
-  Todo.Registry.create("my_todo")
 
   def parse(line) do
     case String.split(line) do
@@ -9,22 +8,23 @@ defmodule Todo.Command do
       ["UPDATE", id, task] -> {:ok, {:update, id, task}}
       _ -> {:error, :unexpected_command}
     end
+  end
 
     def run({:ok, {:add, task}}) do
-      Todo.add(my_todo, task)
+      Todo.add(task)
       {:ok, "Tarefa adicionada!\r\n"}
     end
 
     def run({:ok, {:remove, id}}) do
-      Todo.remove(my_todo, id)
+      Todo.remove(id)
     end
 
     def run({:ok, {:update, id, task}}) do
-      Todo.update(my_todo, id,task)
+      Todo.update(id,task)
     end
 
     def run ({:ok, :show}) do
-      Todo.list(my_todo)
+      Todo.list()
     end
-  end
+
 end
