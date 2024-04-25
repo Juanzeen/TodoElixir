@@ -10,21 +10,23 @@ defmodule Todo.Command do
     end
   end
 
-    def run({:ok, {:add, task}}) do
+
+    def run({:add, task}) do
       Todo.add(task)
       {:ok, "Tarefa adicionada!\r\n"}
     end
 
-    def run({:ok, {:remove, id}}) do
+    def run({:remove, id}) do
       Todo.remove(id)
     end
 
-    def run({:ok, {:update, id, task}}) do
+    def run({:update, id, task}) do
       Todo.update(id,task)
     end
 
-    def run ({:ok, :show}) do
+    def run ({:show}) do
       Todo.list()
     end
+
 
 end

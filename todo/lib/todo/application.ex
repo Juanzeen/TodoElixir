@@ -7,10 +7,9 @@ defmodule Todo.Application do
   @impl true
   def start(_type, _args) do
     children = [
-
       {Task.Supervisor, name: Todo.TaskSupervisor},
       Supervisor.child_spec({Task, fn -> Todo.Server.accept() end}, restart: :permanent),
-      {DynamicSupervisor, name: Todo.BucketSupervisor, strategy: :one_for_one},
+      {Todo}
     ]
 
     opts = [strategy: :one_for_all, name: Todo.Supervisor]
