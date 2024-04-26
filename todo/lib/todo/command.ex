@@ -31,25 +31,21 @@ defmodule Todo.Command do
     end
   end
 
-  # quando a linha de comando é ADD task, executamos essa função
   def run({:add, task}) do
     Todo.add(task)
     {:ok, "Tarefa adicionada!"}
   end
 
-  # quando a linha de comando é REMOVE id, executamos essa função
   def run({:remove, id}) do
     Todo.remove(id)
     {:ok, "A tarefa que possuía o ID: #{id} foi excluída!"}
   end
 
-  # quando a linhha de comando é UPDATE id task
   def run({:update, id, task}) do
     Todo.update(id, task)
     {:ok, "Tarefa alterada para #{task}"}
   end
 
-  # quando a linha de comando é LIST
   def run(:show) do
     Todo.list()
   end

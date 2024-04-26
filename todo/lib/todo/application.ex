@@ -12,6 +12,7 @@ defmodule Todo.Application do
       passa o comando e o servidor interpreta para responder. Também passamos o modulo Todo para o supervisor, pois é neste módulo que temos o coração da aplicação.
       No modulo Todo é onde temos a criação do processo que guarda o estado da TodoList e onde também fazemos todas as alterações da Todo.
       Após isso passamos um Supervisor.child_spec, que basicamente nos permite configurar como o servidor vai tratar os seus childrens, nesse caso colocamos ele para reiniciar os filhos de forma permanente.
+      Esse comportamento do child_spec é aplicado somente na nossa Task, é o que foi passado como argumento.
 
     `opts`
     Nesse opts passamos os padrões opcionais do nosso supervisor, neste caso a estratégia que ele vai adotar para supervisionar as childrens e o nome do supervisor.

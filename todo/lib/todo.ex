@@ -50,9 +50,9 @@ defmodule Todo do
 
   def add(value) do
     my_id = create_id(4)
-
+    formatted_value = String.replace(value, "-", " ")
     Agent.update(__MODULE__, fn tasks ->
-      Map.put(tasks, my_id, value)
+      Map.put(tasks, my_id, formatted_value)
     end)
   end
 
